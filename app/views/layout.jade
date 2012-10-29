@@ -3,31 +3,24 @@ html
   head
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    != css('bootstrap')
-    //!= css('normalize')
-    != css('commons')
-    != css('bootstrap-responsive')
+    != css('normalize')
+    != css('common-style')
     != js('jquery')
-    != js('bootstrap')
     != js('underscore')
-    //!= js('backbone')
-    != js('commons')
+    != js('common-script')
+
   body
-    .navbar.navbar-fixed-top
-      .navbar-inner
-        .container-fluid
-          a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-collapse')
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
+    section#header
+      .exterior
+        .interior
+          block header
 
-          a.brand(href='#') Express City
+    section#leader
+      .exterior
+        .interior
+          block leader
 
-          .nav-collapse.collapse
-            ul.nav
-              li.active: a(href='#') Home
-              li: a(href='#about') About
-              li: a(href='#contact') Contact
-
-    .container-fluid
-      block content
+    section#footer
+      .exterior
+        .interior
+          block footer
