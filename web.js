@@ -62,9 +62,8 @@ if (argv.h) {
   console.log('  start                start the server');
   console.log('  stop                 start the server');
   console.log('  status               check running or not');
-  console.log('  restart              restart the server');
-  console.log('  create event [name]  create event prototype');
-  console.log('  create model [name]  create model prototype');
+  console.log('  ✗ create event [name]  create event prototype');
+  console.log('  ✗ create model [name]  create model prototype');
   util.print('\n');
   console.log('Options:');
   util.print('\n');
