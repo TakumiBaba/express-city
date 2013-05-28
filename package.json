@@ -1,9 +1,9 @@
 {
-  "name": "geta6.net",
+  "name": "express-city",
   "version": "0.5.0",
   "private": true,
   "scripts": {
-    "start": "node web.js"
+    "start": "node web.js start"
   },
   "dependencies": {
     "coffee-script": "*",
