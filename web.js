@@ -51,7 +51,7 @@ process.env.PORT = argv.p || process.env.PORT || 3000;
 var app = require(path.resolve('config', 'app'));
 
 // Exit with Helper
-if (argv.h) {
+if (argv.h || argv._[0] == 'help') {
   util.print('\n');
   console.log(app.get('appname'), 'version', app.get('version'));
   util.print('\n');
@@ -64,6 +64,7 @@ if (argv.h) {
   console.log('  status               check running or not');
   console.log('  ✗ create event [name]  create event prototype');
   console.log('  ✗ create model [name]  create model prototype');
+  console.log('  help                 show this message');
   util.print('\n');
   console.log('Options:');
   util.print('\n');
