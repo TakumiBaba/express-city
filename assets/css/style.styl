@@ -1,0 +1,303 @@
+@import 'nib'
+
+global-reset()
+
+color_ocean_light = #1ABC9C
+color_ocean_thick = #16A085
+color_grass_light = #2ECC71
+color_grass_thick = #27AE60
+color_river_light = #3498DB
+color_river_thick = #2980B9
+color_ameth_light = #9B59B6
+color_ameth_thick = #8E44AD
+color_night_light = #34495E
+color_night_thick = #2C3E50
+color_solar_light = #F1C40F
+color_solar_thick = #F39C12
+color_magma_light = #E67E22
+color_magma_thick = #D35400
+color_blood_light = #E74C3C
+color_blood_thick = #C0392B
+color_cloud_light = #ECF0F1
+color_cloud_thick = #BDC3C7
+color_stone_light = #95A5A6
+color_stone_thick = #7F8C8D
+
+fitground()
+  background-size contain
+  background-color transparent
+  background-repeat no-repeat
+  background-position 50% 50%
+
+*
+  box-sizing border-box
+
+a
+  color inherit
+  text-decoration none
+
+input
+  display inline-block
+  vertical-align top
+  font-size 12px
+  height 30px
+  border none
+  border-radius 2px
+  appearance none
+  resize none
+  outline none
+  font inherit
+  color inherit
+
+html, body
+  font 10px HelveticaNeue, Helvetica, Sans-Serif
+  color color_cloud_light
+  background color_night_thick
+
+#auth
+  z-index 2
+  position fixed
+  top 10px
+  right 10px
+  img
+    width 40px
+    height 40px
+    border 2px solid color_cloud_light
+    background color_night_thick
+    border-radius 20px
+
+#page
+  margin 0 auto
+  width 300px
+
+#prev, #next
+  display inline-block
+  vertical-align top
+  margin-bottom 10px
+  width 40px
+  height 40px
+  line-height 40px
+  fitground()
+  font-size 20px
+  font-weight bold
+  border-radius 20px
+
+#prev
+  float left
+  background-color color_ocean_light
+  background-image url('/img/icon-prev.png')
+  &.disable
+    opacity 0.72
+    background-color color_night_light
+
+#next
+  float right
+  background-color color_ocean_light
+  background-image url('/img/icon-next.png')
+  &.disable
+    opacity 0.72
+    background-color color_night_light
+
+#ends
+  position relative
+  width 100%
+  height 44px
+  text-align center
+
+
+// session
+
+#session
+  position fixed
+  top 50%
+  left 50%
+  margin-top -105px
+  margin-left -160px
+  padding 10px
+  width 320px
+  height 210px
+  text-align center
+  a
+    display block
+    margin 10px auto 0 auto
+    padding 0 10px
+    width 80%
+    height 30px
+    line-height 30px
+  input
+    display block
+    margin 10px auto 0 auto
+    padding 0 10px
+    width 80%
+    background-color color_night_light
+  .signin
+    background-color color_river_light
+  .signup
+    background-color color_grass_light
+
+#logo
+  width 110px
+  height 27px
+
+
+// browser
+
+.items
+  margin 0 auto
+  width 320px
+
+  .content
+    position relative
+    margin 10px
+    width 300px
+
+  .user
+    position absolute
+    top 0
+    left 0
+    width 40px
+    height 40px
+    border-radius 2px
+    fitground()
+
+  .sens
+    position absolute
+    display block
+    width 40px
+    height 40px
+    border-radius 20px
+    background color_night_light
+    &.attention
+      top 50px
+    &.meditation
+      top 100px
+
+
+  .info
+    position relative
+    margin-left 50px
+    padding 10px
+    width 250px
+    background color_night_light
+    border-radius 2px
+    box-shadow 0 0 6px rgba(0,0,0,.12)
+
+    .users, .dates, .place
+      padding-bottom 10px
+      line-height 18px
+      font-weight bold
+    .users
+      float left
+      padding-left 2px
+    .dates
+      float right
+      padding-right 2px
+    .trash
+      float right
+      display inline-block
+      width 20px
+      height 20px
+      background-image url('/img/icon-trash.png')
+      background-size contain
+    .bolts
+      text-align center
+      a
+        display inline-block
+        vertical-align top
+        margin 0 5px
+        width 40px
+        height 40px
+        line-height 40px
+        fitground()
+        font-size 20px
+        font-weight bold
+        border-radius 20px
+      .loves
+        background-color color_blood_thick
+        background-image url('/img/icon-love.png')
+      .cmnts
+        background-color color_grass_thick
+        background-image url('/img/icon-cmnt.png')
+      .spots
+        background-color color_night_thick
+        background-image url('/img/icon-place.png')
+      .count
+        background-color color_night_thick
+    .main
+      position relative
+      margin 10px 0 10px 0
+      width 230px
+      height 250px
+      img
+        display block
+        border-radius 2px
+        width 230px
+        height 230px
+
+    .cmnt
+      display none
+      margin-top 10px
+      .input_cmnt
+        padding-left 5px
+        width 180px
+        background color_night_thick
+      .input_send
+        float right
+        width 40px
+        font-weight bold
+        background color_river_thick
+
+    .bolt
+      display none
+      margin-top 10px
+      background color_night_thick
+      border-radius 2px
+      .lines
+        padding 5px 5px 5px 30px
+        min-height 30px
+        line-height 20px
+        fitground()
+        background-position 5px 5px
+        background-size 20px 20px
+        &:first-child
+          border-top-left-radius 2px
+        &:last-child
+          border-bottom-left-radius 2px
+        &.line_like
+          border-left 4px solid color_blood_thick
+        &.line_cmnt
+          border-left 4px solid color_grass_thick
+        span
+          word-wrap break-word
+
+    .spot
+      display none
+      margin-top 10px
+      .maps
+        position relative
+        height 110px
+        border-radius 2px
+        background-size cover
+        background-position 50% 50%
+      .pinn
+        position absolute
+        top 50%
+        left 50%
+        margin -20px 0 0 -20px
+        width 40px
+        height 40px
+        fitground()
+        background-image url('/img/icon-pinn.png')
+    &:after
+      content ' '
+      position absolute
+      top 15px
+      left 0
+      margin-top 0
+      margin-left -10px
+      margin-right 0
+      margin-bottom 0
+      width 0
+      height 0
+      border 5px solid transparent
+      border-right-color color_night_light

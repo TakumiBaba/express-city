@@ -1,0 +1,32 @@
+{
+  "name": "geta6.net",
+  "version": "0.5.0",
+  "private": true,
+  "scripts": {
+    "start": "node web.js"
+  },
+  "dependencies": {
+    "coffee-script": "*",
+    "hooker": "*",
+    "optimist": "*",
+    "underscore": "*",
+    "underscore.string": "*",
+    "moment": "*",
+    "mime": "*",
+    "minify": "*",
+    "async": "*",
+    "direquire": "*",
+    "express": "*",
+    "mongoose": "*",
+    "passport": "*",
+    "passport-local": "*",
+    "connect-mongo": "*",
+    "connect-asset": "*",
+    "connect-stream": "*",
+    "imagemagick": "*",
+    "st": "*",
+    "jade": "*",
+    "stylus": "*",
+    "nib": "*"
+  }
+}
