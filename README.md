@@ -1,85 +1,74 @@
-[![express-city](https://photos-5.dropbox.com/t/0/AACamN0ShDtdtVngKsOQUuS7dKUaRGWgzk2yK6Umnz3AGA/10/112615465/jpeg/1024x768/2/1350619200/0/2/express-city.jpg/4qUmj_Dw3CP7s3duz9wJTHfzixXqxGdYPR7Ld5Y6CaY)](https://github.com/geta6/express-city)
+# express-city
 
-  Web application template for [nodejs](http://nodejs.org) based on [express](http://expressjs.com)
+## install modules
 
-## Requirement
+`npm install`
 
-  * NodeJS
-  * MongoDB
+## actions
 
+### start
 
-## Describer
+`node web start`
 
-  * `express`: Web-application framework
-  * `mongoose`: ORM for MongoDB
-  * `jade`: html describer
-  * `stylus`: css describer
-  * `coffee-script`: js describer
-  * `bootstrap-2.1.1`: style template
+### stop
 
+`node web stop`
 
-## Quick Start
+### status check
 
-  Start coding:
+`node web status`
 
-    $ git clone https://github.com/geta6/express-city
-    $ cd express-city
+## options
 
-  Install dependencies:
+### -p, --port
+change listening port (Default `3000`)
 
-    $ npm install
+### -e, --env
+chenge application environment (Default `development`)
 
-  Start the server:
+### -c, --concurrent
+process concurrents (Default number of cpu threads)
 
-    $ node index
+### -d, --daemon
+daemonize process (Default `false`)
 
-  or
+### -h, --help
+show help message and exit
 
-    $ node .
+## Events
 
-  Daemonize the server with production environment:
+auto include under `./events`
 
-    $ npm install -g forever
-    $ npm start
+```
+exports.NameOfEvent = (app) ->
+  {Item} = app.get 'models' # get model
+  index: (req, res) -> # method
+    res.render 'index'
+```
 
-  Stop daemonized server:
+## Models
 
-    $ npm stop
+auto include under `./models`
 
-  or
+```
+mongoose = require 'mongoose'
+exports.NameOfModelSchema = NameOfModelSchema = new mongoose.Schema
+  name: { type: String, unique: yes, index: yes }
+  pass: { type: String }
+  icon: { type: Buffer }
+NameOfModelSchema.statics.originalMethodName = (args, done) ->
+  @findOne { name: username }, {}, {}, (err, user) -> # sample
+    return done err, user
+exports.NameOfModel = mongoose.model 'nameofmodels', NameOfModelSchema
+```
 
-    $ forever list
-    # find uid of 4 chars like `upb4`
-    $ forever stop $UID
+## Routes
 
+defined on `./config/routes`
 
-## Future
-
-  * Tests
-  * Example
-
-
-## License
-
-(The MIT License)
-
-Copyright (c) 2012 geta6
-
-Permission is hereby granted, free of charge, to any person obtaining
-a copy of this software and associated documentation files (the
-"Software"), to deal in the Software without restriction, including
-without limitation the rights to use, copy, modify, merge, publish,
-distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to
-the following conditions:
-
-The above copyright notice and this permission notice shall be
-included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
-NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
-LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
-OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
-WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+```
+module.exports = (app) ->
+  NameOfEvent = app.get('events').NameOfEvent app
+  {ensure} = app.get 'helper'
+  app.get '/', NameOfEvent.index
+```
